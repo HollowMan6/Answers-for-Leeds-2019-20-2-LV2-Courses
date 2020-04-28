@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+    <!--Making web page responsive with the device's screen.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lanzhou University</title>
+</head>
+
+<body>
+    <div class="ProgressBar">
+        <div class="progressbar" id="Bar"></div>
+    </div>
+    <header class="header">
+        <nav class="nav" id="navbar">
+            <a id="Arrow" href="javascript:void(0);" class="arrow" onclick="navBar()">&#x25BC;</a>
+            <a href="leeds.html">Leeds</a>
+            <a class="active" href="lzu.html">LZU</a>
+            <a href="china.html">China</a>
+            <a href="about.html">About</a>
+            <a href="index.html">Welcome</a>
+        </nav>
+        <h1>Lanzhou University</h1>
+    </header>
+
+    <hr />
+
+    <div class="content">
+        <img class="lzucontent badge" src="https://upload.wikimedia.org/wikipedia/en/8/84/Lanzhou_Univ_logo.png"
+            alt="Lanzhou University badge">
+        <div class="lzucontent lzuintro">
+            <p>Lanzhou University is the best university in the northwestern region of China, ranking as one of the top
+                30 among over 1,500 universities across China. It is one of the key universities administered directly
+                by the Ministry of Education, and also a member of Project 985 & Project 211.</p>
+        </div>
+
+        <div class="lzucontent photonotice">
+            <h2>Four seasons at Lanzhou University</h2>
+        </div>
+
+        <div class="imagegallery">
+            <div class="lzupic">
+                <img src="pic/lzu2.jpg" alt="Spring View at Lanzhou University" />
+                <div class="lzupicdescription">Spring View at Lanzhou University</div>
+            </div>
+
+            <div class="lzupic">
+                <img src="pic/lzu3.jpg" alt="Summer View at Lanzhou University" />
+                <div class="lzupicdescription">Summer View at Lanzhou University</div>
+            </div>
+
+            <div class="lzupic">
+                <img src="pic/lzu1.jpg" alt="Autumn View at Lanzhou University" />
+                <div class="lzupicdescription">Autumn View at Lanzhou University</div>
+            </div>
+
+        </div>
+
+        <div class="imagegallery2">
+            <div class="lzupic">
+                <img src="pic/lzu4.jpg" alt="Winter View at Lanzhou University" />
+                <div class="lzupicdescription">Winter View at Lanzhou University</div>
+            </div>
+
+            <div class="lzupic">
+                <img src="pic/lzu5.jpg" alt="Winter View at Lanzhou University" />
+                <div class="lzupicdescription">Winter View at Lanzhou University</div>
+            </div>
+
+            <div class="lzupic">
+                <img src="pic/lzu6.jpg" alt="Winter View at Lanzhou University" />
+                <div class="lzupicdescription">Winter View at Lanzhou University</div>
+            </div>
+
+        </div>
+        <div class="lzucontent video">
+            <script src="js/Video.js"></script>
+            <h2>Hello, LZU!</h2>
+            <div class="videobutton">
+                <button id='videobtn' onclick="videoControl()">&#9654;</button>
+            </div>
+            <video id="video">
+                <source src="pic/HelloLZU.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <hr />
+
+    <footer class="footer">
+        <div class="foot">
+            <div class="links">
+                <h2>Follow Me</h2>
+                <a href="https://www.facebook.com/" target="_blank" title="Facebook"><img
+                        class="facebook" src="https://www.facebook.com/images/fb_icon_325x325.png"
+                        alt="Facebook logo" /></a>
+                <a href="https://twitter.com/" target="_blank" title="Twitter"><img class="twitter"
+                        src="https://pbs.twimg.com/profile_images/1111729635610382336/_65QFl7B.png"
+                        alt="Twitter logo" /></a>
+                <a href="https://www.linkedin.com/in/%E8%92%8B%E5%B5%A9%E6%9E%97/" target="_blank" title="Linkedin"><img
+                        class="linkedin"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/a5/7f/d3/a57fd3e6-6a10-9d20-eb33-fe92b8e9085f/AppIcon-0-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-6.png/246x0w.png"
+                        alt="Linkedin logo" /></a>
+                <a href="https://github.com/HollowMan6" target="_blank" title="Github"><img class="github"
+                        src="https://cdn2.iconfinder.com/data/icons/social-icons-circular-color/512/github-512.png"
+                        alt="Github logo" /></a>
+            </div>
+
+            <div class="endtext">
+                <h2>Time for now</h2>
+                <p id="Time"></p>
+                <p id="Date"></p>
+                <h2>Website Pages Visit Count</h2>
+                <p id="visitcount"></p>
+            </div>
+
+
+            <div class="contact">
+                <h2>Contact</h2>
+                <a class="email" href="mailto:hollowman186@vip.qq.com">hollowman186@vip.qq.com</a>
+                <h2><strong>This Website is Created by Hollow Man for Coursework.</strong></h2>
+            </div>
+
+
+        </div>
+
+    </footer>
+    <script src="js/Script.js"></script>
+</body>
+
+</html>

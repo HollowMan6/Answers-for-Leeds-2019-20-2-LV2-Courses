@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+    <!--Making web page responsive with the device's screen.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University of Leeds</title>
+</head>
+
+<body>
+    <div class="ProgressBar">
+        <div class="progressbar" id="Bar"></div>
+    </div>
+    <header class="header">
+        <nav class="nav" id="navbar">
+            <a id="Arrow" href="javascript:void(0);" class="arrow" onclick="navBar()">&#x25BC;</a>
+            <a class="active" href="leeds.html">Leeds</a>
+            <a href="lzu.html">LZU</a>
+            <a href="china.html">China</a>
+            <a href="about.html">About</a>
+            <a href="index.html">Welcome</a>
+        </nav>
+        <h1>University of Leeds</h1>
+    </header>
+
+    <hr />
+
+    <div class="content">
+        <div class="leedscontent whyleeds">
+            <h2>Why Choosing University of Leeds</h2>
+            <p>There existed a lot of alternatives for me to choose for my exchange destination, but finally I decided
+                to go to University of Leeds. The reason why I select University of Leeds as my exchange destination is
+                that I adore the international atmosphere here, I want to experience a completely different culture.
+                Also, many of my seniors who have experience of studying here thought highly of University of Leeds.
+            </p>
+        </div>
+        <div class="leedscontent applying">
+            <table class="qualitable">
+                <caption><strong>My Qualifications for applying</strong></caption>
+                <thead>
+                    <tr>
+                        <th>Qualifications</th>
+                        <th>Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><abbr title="Grade Point Average">GPA</abbr></td>
+                        <td class="grade">3.85/4</td>
+                    </tr>
+                    <tr>
+                        <td><abbr title="International English Language Testing System">IELTS</abbr> Overall</td>
+                        <td class="grade">6.5</td>
+                    </tr>
+                    <tr>
+                        <td><abbr title="International English Language Testing System">IELTS</abbr> Listening</td>
+                        <td class="grade">8.0</td>
+                    </tr>
+                    <tr>
+                        <td><abbr title="International English Language Testing System">IELTS</abbr> Reading</td>
+                        <td class="grade">7.0</td>
+                    </tr>
+                    <tr>
+                        <td><abbr title="International English Language Testing System">IELTS</abbr> Writing</td>
+                        <td class="grade">5.5</td>
+                    </tr>
+                    <tr>
+                        <td><abbr title="International English Language Testing System">IELTS</abbr> Speaking</td>
+                        <td class="grade">6.0</td>
+                    </tr>
+            </table>
+            <h2>Applying for Leeds and scholarship</h2>
+            <p>Those qualifications offered me a chance to apply for exchanging at Univeristy of Leeds and a scholarship
+                from China Scholarship Concil International Exchange Program for Excellent Undergraduates.</p>
+        </div>
+        <div class="leedscontent studying">
+            <h2>Studying at Leeds</h2>
+            <p>I'm having a good time here at Leeds. Though there are huge differences in cultures between China and UK,
+                I get used to them eventually. What's more, I have made a lot of friends from different countries.</p>
+        </div>
+        <div class="leedscontent Leedspicshow">
+            <img class="Leedspic" src="pic/IMG_20200221_121225.jpg" alt="View of University of Leeds">
+            <img class="Leedspic" src="pic/IMG_20200302_093512.jpg" alt="Rainbow from my dorm">
+            <img class="Leedspic" src="pic/IMG_20200224_082950.jpg" alt="Snow view of my dorm">
+            <img class="Leedspic" src="pic/IMG_20200224_155618.jpg" alt="Street of Leeds">
+            <img class="Leedspic" src="pic/IMG_20200302_115846.jpg" alt="View of Campus">
+            <script src="js/PicShow.js"></script>
+
+            <div class="Leedspicbuttons">
+                <button onclick="changeIndex(-1)">&#9194</button>
+                <button onclick="changeIndex(1)">&#9193</button>
+            </div>
+        </div>
+
+        <div class="leedscontent mapbuttons">
+            <h2>A Map for My Hometown, LZU, Leeds and your location</h2>
+            <button onclick="changeMapRoad(map)">Road Map View</button>
+            <button onclick="changeMapTerrain(map)">Terrain View</button>
+            <button onclick="changeMapSat(map)">Satellite View</button>
+            <button onclick="changeZoom(map,1)"><strong>+</strong></button>
+            <button onclick="changeZoom(map,-1)"><strong>-</strong></button>
+        </div>
+
+        <div class="googleMap" id="googleMap" style="width:70%;height:400px;"></div>
+        <script src="js/googleMaps.js" type="text/javascript"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJW4jsPlNKgv6jFm3B5Edp5ywgdqLWdmc&callback=getUserLocation"
+            type="text/javascript"></script>
+
+
+    </div>
+
+    <hr />
+
+    <footer class="footer">
+        <div class="foot">
+            <div class="links">
+                <h2>Follow Me</h2>
+                <a href="https://www.facebook.com/" target="_blank" title="Facebook"><img
+                        class="facebook" src="https://www.facebook.com/images/fb_icon_325x325.png"
+                        alt="Facebook logo" /></a>
+                <a href="https://twitter.com/" target="_blank" title="Twitter"><img class="twitter"
+                        src="https://pbs.twimg.com/profile_images/1111729635610382336/_65QFl7B.png"
+                        alt="Twitter logo" /></a>
+                <a href="https://www.linkedin.com/in/%E8%92%8B%E5%B5%A9%E6%9E%97/" target="_blank" title="Linkedin"><img
+                        class="linkedin"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/a5/7f/d3/a57fd3e6-6a10-9d20-eb33-fe92b8e9085f/AppIcon-0-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-6.png/246x0w.png"
+                        alt="Linkedin logo" /></a>
+                <a href="https://github.com/HollowMan6" target="_blank" title="Github"><img class="github"
+                        src="https://cdn2.iconfinder.com/data/icons/social-icons-circular-color/512/github-512.png"
+                        alt="Github logo" /></a>
+            </div>
+
+            <div class="endtext">
+                <h2>Time for now</h2>
+                <p id="Time"></p>
+                <p id="Date"></p>
+                <h2>Website Pages Visit Count</h2>
+                <p id="visitcount"></p>
+            </div>
+
+
+            <div class="contact">
+                <h2>Contact</h2>
+                <a class="email" href="mailto:hollowman186@vip.qq.com">hollowman186@vip.qq.com</a>
+                <h2><strong>This Website is Created by Songlin Jiang for Coursework.</strong></h2>
+            </div>
+
+
+        </div>
+
+    </footer>
+    <script src="js/Script.js"></script>
+</body>
+
+</html>

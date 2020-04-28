@@ -1,0 +1,140 @@
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 1 x 1 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(0, 0)
+Path length = 1
+Total nodes tested = 2
+Time taken = 0.0 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 3 x 3 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(1, 1)
+Path length = 1
+Total nodes tested = 6
+Time taken = 0.01 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 4 x 4 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(0, 0), (2, 2)
+Path length = 2
+Total nodes tested = 23
+Time taken = 0.03 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 5 x 5 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(4, 4), (0, 0), (2, 2)
+Path length = 3
+Total nodes tested = 664
+Time taken = 3.27 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 5 x 6 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(5, 4), (0, 1), (3, 1)
+Path length = 3
+Total nodes tested = 975
+Time taken = 15.0 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 6 x 5 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  1000  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(4, 5), (0, 2), (3, 2)
+Path length = 3
+Total nodes tested = 1001
+Time taken = 19.36 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 10 x 3 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(2, 9), (0, 0), (1, 9)
+Path length = 3
+Total nodes tested = 942
+Time taken = 7.78 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 3 x 4 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(0, 0), (3, 2)
+Path length = 2
+Total nodes tested = 14
+Time taken = 0.0 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 4 x 7 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(6, 3), (1, 0), (4, 2)
+Path length = 3
+Total nodes tested = 935
+Time taken = 22.38 seconds
+
+======= Running Brandon's Python Queue-Based Search Procedure =======
+The Queen's Cover ( 2 x 50 board)
+Strategy: ('A_star', <function zero_heuristic at 0x7ff161e9d140>)
+Search Limit: max_nodes = 5000
+Options: []
+*** starting search ***
+0  
+:-)) *SUCCESS* ((-:
+The action path to the solution is:
+(0, 0), (49, 1)
+Path length = 2
+Total nodes tested = 102
+Time taken = 1.54 seconds
+

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Membership{% endblock %}
+
+{% block page_content %}
+        <div class="col-md-6 col-xs-9">
+            <div>
+            <h3>Payment information</h3>
+
+                    {{ wtf.quick_form(form) }}
+            </div>
+        <h3>Total: ${{ price }}</h3>
+        </div>
+
+
+
+
+
+
+{% endblock %}

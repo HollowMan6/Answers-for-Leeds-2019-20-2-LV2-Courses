@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Cancel Membership{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            <h3>Membership information:</h3>
+            <h4>Status: {{ membership.status }}</h4>
+            <h4>Start date: {{ membership.start_date }}</h4>
+            <h4>End date: {{ membership.end_date}}</h4>
+            <h4>Days left: {{ days_left}}</h4>
+
+            <h3>Refund information:</h3>
+                {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6">
+            <h3>Refund: ${{ money_refund }}</h3>
+        </div>
+    </div>
+
+{% endblock %}

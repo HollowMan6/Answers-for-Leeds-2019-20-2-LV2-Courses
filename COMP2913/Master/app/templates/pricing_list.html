@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-18">
+            {% for facility in facilities %}
+                <h2>{{ facility.name }}</h2>
+                <table class="table table-striped table-hover mytable" id="complete-table" width='100%' border='0'
+                       cellspacing='0' cellpadding='0' style='table-layout: fixed'>
+                    <tbody>
+                    <tr>
+                        <th colspan='3' style='word-wrap: break-word'>Activity name</th>
+                        <th colspan='3' style='word-wrap: break-word'>Price</th>
+                    </tr>
+                    {% for activity in facility.activities %}
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>{{ activity.activity_name }}</td>
+                            <td colspan='3' style='word-wrap: break-word'>{{ activity.activity_price|currency }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

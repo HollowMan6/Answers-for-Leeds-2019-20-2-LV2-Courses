@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block title %}Membership{% endblock %}
+
+{% block page_content %}
+    <div class="container-fluid">
+    {%  for membership in memberships %}
+            <div class="col-md-3 col-xs-5 col-md-offset-1">
+                <a href="{{ url_for('.pay_membership',type_id=membership.id)}}">
+                    <h4>{{ membership.length }} months</h4>
+                </a>
+                <a href="{{ url_for('.pay_membership',type_id=membership.id)}}">
+                    <h4>$ {{ membership.price }}</h4>
+                </a>
+            </div>
+    {% endfor %}
+</div>
+{% endblock %}

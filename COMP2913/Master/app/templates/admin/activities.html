@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "object_list_as_table.html" import object_list_as_table %}
+
+{% block title %}The Gym - Activities{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Activities</h1>
+</div>
+<div class="col-md-4">
+    {% call(activity) object_list_as_table(activities) %}
+        <td><a href="/activities/{{ activity.id }}">Edit</a></td>
+    {% endcall %}
+    <a href="/activities/new">+ Add activity</a>
+</div>
+{% endblock %}

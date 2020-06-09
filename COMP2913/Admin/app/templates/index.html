@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+ <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+    window.cookieconsent.initialise({
+     "palette": {
+         "popup": {
+             "background": "#000"
+         },
+         "button": {
+            "background": "#f1d600"
+         }
+     },
+        "theme": "classic"
+    });
+</script>
+{% endblock %}
+
+{% block page_content %}
+    <div class="container"><br>
+        <div class="col-md-8 col-md-offset-1 col-xs-10 col-xs-offset-1">
+		<div id="myCarousel" class="carousel slide center-block"  style="width:900px;">
+			<!-- 轮播（Carousel）指标 -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+
+			<!-- （Carousel）Project -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="../static/index1.jpg" alt="First slide">
+					<div class="carousel-caption">
+						<!--<h3>Movie Information</h3>
+						<p>bravo!</p>-->
+					</div>
+				</div>
+				<div class="item">
+					<img src="../static/index2.jpg" alt="Second slide">
+				</div>
+				<div class="item">
+					<img src="../static/index3.jpg" alt="Third slide">
+				</div>
+                <div class="item">
+					<img src="../static/index4.jpg" alt="Third slide">
+				</div>
+			</div>
+
+			<a href="#myCarousel" class="left carousel-control" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a href="#myCarousel" class="right carousel-control" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div>
+    </div>
+
+	<script>
+		$('#myCarousel').carousel({
+			interval:2000,
+			wrap:true
+		}).on('slide.bs.carousel', function () {
+		  //alert('slide')
+		}).on('slid.bs.carousel', function () {
+		  //alert('slid')
+		})
+		$('#btn').click(function(){
+			//$('#myCarousel').carousel(2);
+		});
+	</script>
+
+
+    <div class="center-block">
+    <div class=" col-md-7 col-md-offset-2 col-xs-10 col-xs-offset-1">
+        <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!
+            Welcome to Gym.</h1>
+
+        <h3>Swimming Pool</h3>
+<p>Our main swimming pool is great for fun and fitness alike. With both shallow and deep ends, this pool is widely accessible for all ages and capabilities. We have a wide variety of swimming lessons for both adults and children as well as a timetable of varied activities.
+</p>
+<h3>Premier Suite (Sauna / Steam room)</h3>
+<p>Our premier suite is the ideal place to unwind and relax after a long day or intense workout. This is an adult only zone, with its own changing area located on the pool level.
+</p>
+<h3>Gym</h3>
+<p>Our gym was fully refurbished and re-opened in October 2012. Because of this the gym now offers a bigger and better fitness experience. The upgrade has seen the gym double in size and has made room for brand new state of the art gym equipment. New flooring, air conditioning and paintwork have been added to compliment the upgrade. This gym offers 40 stations including but not limited to:
+
+Treadmills
+X trainers
+Bikes
+Rowing machines
+Steppers
+Cable machines
+Selected Technogym equipment have audio jacks that allow you to connect to the in gym entertainment system. Please note: an induction is required for your own safety before using the gym for the first time.
+</p>
+<h3>Sports hall</h3>
+<p>Our sports hall has a number of courts available to hire for a variety of sports including badminton, basketball, 5-a-side football and tennis. The venue is also available to hire for non-sporting functions.
+</p>
+<h3>Outdoor Pitch</h3>
+<p>Located outside the centre we a state of the art Floodlit 3rd Generation pitch that is suitable for 5/6 a side matches. This pitch is available for hire - contact the site for prices and availability.
+</p>
+<h3>Childrens Parties</h3>
+<p>Why not celebrate your child's next birthday in style? Our parties are designed to ensure your child's day is packed with fun and yours is stress and hassle free. View our range of parties.
+</p>
+<h3>Parking</h3>
+<p>We have 2 car parks and 6 disabled spots accommodating over 100 vehicles. We also have a undercover cycle rack.</p>
+    </div>
+    </div>
+
+{% endblock %}

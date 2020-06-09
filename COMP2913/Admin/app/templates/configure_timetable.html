@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Configure Timetable{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            <h3>Configure Timetable:</h3>
+
+                    {{ wtf.quick_form(form) }}
+
+            </div>
+        </div>
+{% endblock %}

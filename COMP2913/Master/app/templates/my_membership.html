@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}My membership{% endblock %}
+
+{% block page_content %}
+    {% if not membership %}
+        <div class="col-md-offset-4">
+            <a href="{{ url_for('main.index') }}">You have no membership.</a>
+        </div>
+    {% else %}
+        <h4 id="cart">Your membership information: </h4>
+        <div class="container-fluid">
+            <div class="col-md-10 col-md-offset-1 col-xs-10 col-md-offset-1">
+                <table class="table table-striped table-hover mytable" id="complete-table" width='100%' border='0'
+                       cellspacing='0' cellpadding='0' style='table-layout: fixed'>
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th style='word-wrap: break-word'>Start date</th>
+                        <th style='word-wrap: break-word'>End date</th>
+                        <th style='word-wrap: break-word'>Price</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td style='word-wrap: break-word'>{{ membership_type.name }}</td>
+                        <td style='word-wrap: break-word'>{{ membership.start_date }}</td>
+                        <td style='word-wrap: break-word'>{{ membership.end_date }}</td>
+                        <td style='word-wrap: break-word'>{{ membership_type.price|currency }}</td>
+                        <td style='word-wrap: break-word'>
+                            <a class="btn btn-mini btn-info" href="{{ url_for('.cancel_membership') }}">
+                                Cancel membership
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

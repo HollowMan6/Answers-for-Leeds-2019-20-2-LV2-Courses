@@ -1,0 +1,24 @@
+{% macro object_list_as_table(objs, classname='table') -%}
+    <table class="{{ classname }}">
+        {% if objs %}
+            {% set keys = objs[0].__dict__.keys() %}
+            <tr>
+                {% for key in keys %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+            {% for obj in objs %}
+                {% set vals = obj.__dict__.values() %}
+                <tr>
+                    {% for val in vals %}
+                        <td>{{ val }}</td>
+                    {% endfor %}
+                    {% if caller %}
+                        {% set extra_content = caller(obj) %}
+                        {% if extra_content %}{{ extra_content }}{% endif %}
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+{%- endmacro %}

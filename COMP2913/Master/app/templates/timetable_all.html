@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Timetable{% endblock %}
+
+{% block page_content %}
+    <a href="{{ url_for('.timetable_all') }}">Prev day</a>
+    <a href="{{ url_for('.timetable_all') }}">Next day</a>
+
+    <div class="container-fluid">
+        {% for facility_name, instances in activity_instances.items() %}
+            <h3>{{ facility_name }}</h3>
+            {% if instances|length %}
+                <ul>
+                    {% for instance in instances %}
+                        <li>
+                            {{ instance.activity.activity_name }}
+                            ({{ instance.start_time|timeformat }}-{{ instance.end_time|timeformat }})
+                            <a href="{{ url_for('.book_activity_instance', instance_id=instance.id) }}">Book</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No activities available</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

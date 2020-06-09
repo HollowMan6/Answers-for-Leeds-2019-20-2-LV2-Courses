@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+<<<<<<< HEAD
+{% from "bootstrap/form.html" import render_form %}
+=======
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+>>>>>>> MeiXiaohan
+
+{% block title %}Timetable all{% endblock %}
+
+{% block page_content %}
+<<<<<<< HEAD
+=======
+
+>>>>>>> MeiXiaohan
+    <h4 id="cart">Weekly Business: </h4>
+    <h3>Overall income:{{ overall_income }}</h3>
+    <h3>Overall usage:{{ overall_usage }}</h3>
+
+<<<<<<< HEAD
+    <div class="container-fluid">
+        <div class="col-md-10 col-md-offset-1 col-xs-10 col-md-offset-1">
+            <table class="table table-striped table-hover mytable" id="complete-table" width='100%' border='0'
+                   cellspacing='0' cellpadding='0' style='table-layout: fixed'>
+                <tbody>
+                <tr>
+                    <th colspan='3' style='word-wrap: break-word'>Activity</th>
+                    <th colspan='3' style='word-wrap: break-word'>Income</th>
+                    <th colspan='3' style='word-wrap: break-word'>Usage</th>
+                </tr>
+
+                {% for activity in activities %}
+                    <tr>
+                        <td colspan='3' style='word-wrap: break-word'>{{ activity.activity_name }}</td>
+                        <td colspan='3' style='word-wrap: break-word'>{{ activity.weekly_income }}</td>
+                        <td colspan='3' style='word-wrap: break-word'>{{ activity.weekly_usage }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+=======
+
+<div class="container-fluid">
+            <div class="col-md-10 col-md-offset-1 col-xs-10 col-md-offset-1">
+                <table class="table table-striped table-hover mytable" id="complete-table" width='100%' border='0' cellspacing='0' cellpadding='0'  style='table-layout: fixed'>
+                    <tbody>
+                        <tr>
+                            <th colspan='3' style='word-wrap: break-word'>Activity</th>
+                            <th colspan='3' style='word-wrap: break-word'>Income</th>
+                            <th colspan='3' style='word-wrap: break-word'>Usage </th>
+                        </tr>
+
+                         {% for activity in activities %}
+                             <tr>
+                                <td colspan='3' style='word-wrap: break-word'>{{ activity.activity_name}}</td>
+                                <td colspan='3' style='word-wrap: break-word'>{{ activity.weekly_income }}</td>
+                                <td colspan='3' style='word-wrap: break-word'>{{activity.weekly_usage}}</td>
+                            </tr>
+                         {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+</div>
+>>>>>>> MeiXiaohan
+{% endblock %}

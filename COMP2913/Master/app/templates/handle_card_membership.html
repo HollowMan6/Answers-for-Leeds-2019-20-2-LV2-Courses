@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from "bootstrap/form.html" import render_form %}
+
+{% block title %}Membership{% endblock %}
+
+{% block page_content %}
+    <div class="col-md-6 col-xs-9">
+        <div>
+            <h3>Payment information</h3>
+            {% if user.can(Permission.PAY) %}
+                {{ render_form(form) }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-6">
+        <p>
+        <h5>Total: ${{ price }}</h5>
+        </p>
+    </div>
+{% endblock %}

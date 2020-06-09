@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Facility{% endblock %}
+
+{% block page_content %}
+    <div class="container-fluid">
+        {% for facility in facilities %}
+            <div class="col-md-3 col-xs-5 col-md-offset-1">
+                <a href="{{ url_for('.view_info', id=facility.id) }}">
+                    <img src="{{ facility.url }}" class="img-responsive" alt="Responsive image"/>
+                </a>
+                <a href="{{ url_for('.view_info', id=facility.id) }}">
+                    <h5>{{ facility.name }}</h5>
+                    <span class="price">
+                        <span class="price_amount">
+                            <h5>More information</h5>
+                        </span>
+                    </span>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

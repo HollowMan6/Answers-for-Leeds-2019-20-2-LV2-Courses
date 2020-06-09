@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}The Gym - Confirmation{% endblock %}
+
+{% block page_content %}
+    <div class="container-fluid">
+        <h1>Success!</h1>
+        <h3>Here is a summary of your booking:</h3>
+
+        <p>Activity name: {{ booking.activity_instance.activity.activity_name }}</p>
+        <p>Price: {{ booking.activity_instance.activity.activity_price|currency }}</p>
+        <p>Start time: {{ booking.activity_instance.start_time }}</p>
+        <p>End time: {{ booking.activity_instance.end_time }}</p>
+        <p>Facility: {{ booking.activity_instance.activity.facility.name }}</p>
+
+        <blockquote>If you wish to cancel your booking, please <a
+                href="{{ url_for('.cancel_booking', id=booking.id) }}">click here</a>.
+        </blockquote>
+    <a href="{{ url_for('.index') }}">Return home</a>
+    </div>
+{% endblock %}

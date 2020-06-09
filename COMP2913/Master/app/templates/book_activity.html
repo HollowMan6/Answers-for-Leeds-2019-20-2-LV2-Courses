@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% from "bootstrap/form.html" import render_form %}
+
+{% block title %}Book Activity{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            {{ render_form(form) }}
+        </div>
+    </div>
+{% endblock %}

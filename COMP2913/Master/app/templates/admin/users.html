@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "object_list_as_table.html" import object_list_as_table %}
+
+{% block title %}The Gym - Users{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Users</h1>
+</div>
+<div class="col-md-4">
+    {% call(user) object_list_as_table(users) %}
+        <td><a href="/users/{{ user.id }}">Edit</a></td>
+    {% endcall %}
+    <a href="/users/new">+ Add user</a>
+</div>
+{% endblock %}

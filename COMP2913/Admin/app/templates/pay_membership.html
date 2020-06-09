@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Membership{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            <h3>Contact Information</h3>
+            <div class="row">
+                <div class="col-md-2 col-xs-3"><img src="{{ current_user.gravatar(size=30) }}"></div>
+                <div class="col-md-3 col-xs-6"><h5>{{ current_user.firstname }}{{ current_user.lastname }}({{ current_user.email }})</h5></div>
+           </div>
+
+            <div>
+            <h3>Membership information</h3>
+                <h5>{{ membership_type.length }} months</h5>
+                <h5>${{ membership_type.price }}</h5>
+                    {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

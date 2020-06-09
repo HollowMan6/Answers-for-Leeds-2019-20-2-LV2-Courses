@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Book Facility{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            <h3>Book Facility:</h3>
+                {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+{% endblock %}

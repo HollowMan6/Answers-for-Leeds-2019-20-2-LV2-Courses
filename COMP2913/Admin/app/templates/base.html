@@ -1,0 +1,146 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Charlie Mei 2019-12-15 14:24 -->
+            <a class="navbar-brand" href="{{ url_for('main.index')}}">The Gym</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                {% if current_user.role_id == 1 %}
+                    <li><a href="{{ url_for('main.facility')}}">Facility</a></li>
+                    <li><a href="{{ url_for('main.display_pricing_list')}}">Pricing List</a></li>
+                    <li><a href="{{ url_for('main.view_membership_type')}}">Membership</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Timetable <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('main.timetable_all', date=0, offset=0) }}">All Timetables</a></li>
+                            <li><a href="{{ url_for('main.timetable_facility',type=1) }}">One specified facility</a></li>
+                        </ul>
+                    </li>
+
+                {% elif current_user.role_id == 2 %}
+                    <li><a href="{{ url_for('main.facility')}}">Facility</a></li>
+                    <li><a href="{{ url_for('main.display_pricing_list')}}">Pricing List</a></li>
+                    <li><a href="{{ url_for('main.search_booking') }}">Search Booking</a></li>
+                    <li><a href="{{ url_for('main.search_booking') }}">Search Membership</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Timetable <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('main.timetable_all', date=0, offset=0) }}">All Timetables</a></li>
+                            <li><a href="{{ url_for('main.timetable_facility',type=1) }}">One specified facility</a></li>
+                        </ul>
+                    </li>
+
+                {% elif current_user.role_id == 3 %}
+                    <li><a href="{{ url_for('main.facility')}}">Facility</a></li>
+                        <li><a href="{{ url_for('main.display_pricing_list')}}">Pricing List</a></li>
+                        <li><a href="{{ url_for('main.view_income') }}">Business</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Configure <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('main.configure_facility') }}">Facility</a></li>
+                                <li><a href="{{ url_for('main.configure_activity') }}">Activity</a></li>
+                                <li><a href="{{ url_for('main.configure_timetable') }}">Timetable</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Timetable <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('main.timetable_all', date=0, offset=0) }}">All Timetables</a></li>
+                                <li><a href="{{ url_for('main.timetable_facility',type=1) }}">One specified facility</a></li>
+                            </ul>
+                        </li>
+                {% else %}
+                       <li><a href="{{ url_for('main.facility')}}">Facility</a></li>
+                    <li><a href="{{ url_for('main.display_pricing_list')}}">Pricing List</a></li>
+                    <li><a href="{{ url_for('main.view_membership_type')}}">Membership</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Timetable <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('main.timetable_all', date=0, offset=0) }}">All Timetables</a></li>
+                            <li><a href="{{ url_for('main.timetable_facility',type=1) }}">One specified facility</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{{ current_user.gravatar(size=18) }}">
+                        Account <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="page-header">
+                        <h3>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h3>
+                        </li>
+                    {% if current_user.role_id == 1 %}
+                        <li><a href="{{ url_for('main.display_bookings',id=current_user.id) }}">My bookings</a></li>
+                        <li><a href="{{ url_for('main.display_cards',id=current_user.id) }}">My Card</a></li>
+                        <li><a href="{{ url_for('main.display_membership',id=current_user.id) }}">My Membership</a></li>
+                    {% endif %}
+                        <li><a href="{{ url_for('auth.change_password') }}">Change Password</a></li>
+                        <li><a href="{{ url_for('auth.change_email_request') }}">Change Email</a></li>
+                        <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+                        {% if current_user.is_authenticated %}
+                            <li><a href="{{ url_for('main.edit_profile') }}">Change Profile</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}

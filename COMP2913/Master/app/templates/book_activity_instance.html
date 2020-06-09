@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% from "bootstrap/form.html" import render_form %}
+
+{% block title %}Book Activity{% endblock %}
+
+{% block page_content %}
+    <p>Activity name: {{ instance.activity.activity_name }}</p>
+    <p>Price: {{ instance.activity.activity_price|currency }}</p>
+    <p>Start time: {{ instance.start_time }}</p>
+    <p>End time: {{ instance.end_time }}</p>
+    <p>Facility: {{ instance.activity.facility.name }}</p>
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            {{ render_form(form) }}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='card_form.js') }}"></script>
+{% endblock %}

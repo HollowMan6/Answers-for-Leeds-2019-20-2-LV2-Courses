@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Timetable all{% endblock %}
+
+{% block page_content %}
+    <div class="col-xs-6 col-md-4">.
+        <a class="btn btn-mini btn-success" href="{{ url_for('.timetable_all', date=2,offset=offset) }}">The day before</a>
+    </div>
+    <div class="col-xs-6 col-md-4 ">
+        <h3>{{ new_date }}</h3>
+    </div>
+    <div class="col-xs-6 col-md-4 ">
+        <a class="btn btn-mini btn-success" href="{{ url_for('.timetable_all', date=1,offset=offset) }}">The day after</a>
+    </div>
+    <br>
+    <br>
+
+<div class="container-fluid">
+            <div class="col-md-10 col-md-offset-1 col-xs-10 col-md-offset-1">
+                <table class="table table-striped table-hover mytable" id="complete-table" width='100%' border='0' cellspacing='0' cellpadding='0'  style='table-layout: fixed'>
+                    <tbody>
+                        <tr>
+                            <th colspan='3' style='word-wrap: break-word'>    </th>
+                            {% for facility in facilities %}
+                            <th colspan='3' style='word-wrap: break-word'> {{ facility.name }} </th>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>8:00 ~ 9:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==8 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>9:00 ~ 10:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==9 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>10:00 ~ 11:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==10 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>11:00 ~ 12:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==11 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>12:00 ~ 13:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==12 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr><tr>
+                            <td colspan='3' style='word-wrap: break-word'>13:00 ~ 14:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==13 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>14:00 ~ 15:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==14 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>15:00 ~ 16:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==15 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>16:00 ~ 17:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==16 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>17:00 ~ 18:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==17 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>18:00 ~ 19:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==18 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>19:00 ~ 20:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==19 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>20:00 ~ 21:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==20 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    <tr>
+                            <td colspan='3' style='word-wrap: break-word'>21:00 ~ 22:00</td>
+                            {% for facility in facilities %}
+                                {% for timetable in timetables %}
+                                     {% if timetable.facility_id==facility.id and timetable.start_time==21 %}
+                                        {% if timetable.current_capacity < facility.capacity %}
+                                            <td colspan='3' style='word-wrap: break-word'>
+                                                <a class="btn btn-mini btn-info" href="{{url_for('.book_facility',type=facility.id)}}">Book</a>
+                                            </td>
+                                        {% else %}
+                                            <td colspan='3' style='word-wrap: break-word'>Full</td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+</div>
+{% endblock %}

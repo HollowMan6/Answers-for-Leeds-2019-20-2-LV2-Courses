@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% from "object_list_as_table.html" import object_list_as_table %}
+
+{% block title %}The Gym - Bookings{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Bookings</h1>
+</div>
+<div class="col-md-4">
+    {{ object_list_as_table(bookings) }}
+</div>
+{% endblock %}

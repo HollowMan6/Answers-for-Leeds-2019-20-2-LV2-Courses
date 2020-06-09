@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Memberships - The Gym{% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>Memberships</h1>
+    </div>
+    <div class="col-md-4">
+        {% for membership in membership_types %}
+            <div class="col-md-3 col-xs-5 col-md-offset-1">
+                <a href="{{ url_for('.purchase_membership', type=membership.id) }}">
+                    <h5>{{ membership.name }}</h5>
+                    <br>
+                    <h5>{{ membership.price|currency }}</h5>
+                </a>
+            </div>
+        {% endfor %}
+        <h5>Join us now</h5>
+    </div>
+{% endblock %}

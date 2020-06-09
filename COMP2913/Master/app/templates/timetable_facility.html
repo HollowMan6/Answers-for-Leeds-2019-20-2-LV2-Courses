@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Timetable facility{% endblock %}
+
+{% block page_content %}
+    <form action="{{ url_for('.timetable_facility', type=type) }}" method="post">
+        <input name="'done" class="btn btn-mini btn-success" type="submit" value="Next facility"/>
+    </form>
+
+    <div class="container-fluid">
+        <div class="col-md-10 col-md-offset-1 col-xs-10 col-md-offset-1">
+            <table class="table table-striped table-hover mytable" id="complete-table" width='100%' border='0'
+                   cellspacing='0' cellpadding='0' style='table-layout: fixed'>
+                <tbody>
+                <tr>
+                    <th colspan='3' style='word-wrap: break-word'></th>
+                    <th colspan='3' style='word-wrap: break-word'> {{ today }} </th>
+                    <th colspan='3' style='word-wrap: break-word'> {{ day2 }} </th>
+                    <th colspan='3' style='word-wrap: break-word'> {{ day3 }} </th>
+                    <th colspan='3' style='word-wrap: break-word'> {{ day4 }} </th>
+                    <th colspan='3' style='word-wrap: break-word'> {{ day5 }} </th>
+                </tr>
+
+                {% for timetable in timetable1 %}
+                    {% if timetable.facility_id == facility.id %}
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>{{ timetable.start_time }}:00
+                                ~ {{ timetable.end_Time }}:00
+                            </td>
+                            {% if timetable.bookings is None %}
+                                <td colspan='3' style='word-wrap: break-word'>
+                                    <a class="btn btn-mini btn-info"
+                                       href="{{ url_for('.book_facility',type=facility.id) }}">Book</a>
+                                </td>
+                            {% else %}
+                                <td colspan='3' style='word-wrap: break-word'>Full</td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
+                {% for timetable in timetable2 %}
+                    {% if timetable.facility_id == facility.id %}
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>{{ timetable.start_time }}:00
+                                ~ {{ timetable.end_Time }}:00
+                            </td>
+                            {% if timetable.bookings is None %}
+                                <td colspan='3' style='word-wrap: break-word'>
+                                    <a class="btn btn-mini btn-info"
+                                       href="{{ url_for('.book_facility',type=facility.id) }}">Book</a>
+                                </td>
+                            {% else %}
+                                <td colspan='3' style='word-wrap: break-word'>Full</td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
+                {% for timetable in timetable3 %}
+                    {% if timetable.facility_id == facility.id %}
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>{{ timetable.start_time }}:00
+                                ~ {{ timetable.end_Time }}:00
+                            </td>
+                            {% if timetable.bookings is None %}
+                                <td colspan='3' style='word-wrap: break-word'>
+                                    <a class="btn btn-mini btn-info"
+                                       href="{{ url_for('.book_facility',type=facility.id) }}">Book</a>
+                                </td>
+                            {% else %}
+                                <td colspan='3' style='word-wrap: break-word'>Full</td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
+                {% for timetable in timetable4 %}
+                    {% if timetable.facility_id == facility.id %}
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>{{ timetable.start_time }}:00
+                                ~ {{ timetable.end_Time }}:00
+                            </td>
+                            {% if timetable.bookings is None %}
+                                <td colspan='3' style='word-wrap: break-word'>
+                                    <a class="btn btn-mini btn-info"
+                                       href="{{ url_for('.book_facility',type=facility.id) }}">Book</a>
+                                </td>
+                            {% else %}
+                                <td colspan='3' style='word-wrap: break-word'>Full</td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
+                {% for timetable in timetable5 %}
+                    {% if timetable.facility_id == facility.id %}
+                        <tr>
+                            <td colspan='3' style='word-wrap: break-word'>{{ timetable.start_time }}:00
+                                ~ {{ timetable.end_Time }}:00
+                            </td>
+                            {% if timetable.bookings is None %}
+                                <td colspan='3' style='word-wrap: break-word'>
+                                    <a class="btn btn-mini btn-info"
+                                       href="{{ url_for('.book_facility',type=facility.id) }}">Book</a>
+                                </td>
+                            {% else %}
+                                <td colspan='3' style='word-wrap: break-word'>Full</td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

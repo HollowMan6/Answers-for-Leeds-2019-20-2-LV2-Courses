@@ -1,0 +1,13 @@
+<p>Dear {{ current_user.username }},</p>
+<p>Your booking receipt:</p>
+<p>*********************************</p>
+<p> Activity: {{ book.activity }}</p>
+<p> Date:{{ time.date }}</p>
+<p> Time:{{ time.start_time }}:00 ~ {{ time.end_time }}:00</p>
+<p>*********************************</p>
+<p>Total: {{book.fees}}</p>
+</br>
+</br>
+</br>
+<p>{{ book.timestamp }}</p>
+<p><img src="../static/receipt.jpg"></p>

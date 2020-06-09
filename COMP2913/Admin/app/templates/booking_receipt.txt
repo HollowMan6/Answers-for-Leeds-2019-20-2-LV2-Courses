@@ -1,0 +1,13 @@
+Dear {{ current_user.username }},
+
+Your booking receipt:
+*********************************
+{{ book.activity }}
+{{ time.date }}
+{{ time.start_time }}:00 ~ {{ time.end_time }}:00
+*********************************
+Total: {{book.fees}}
+
+{{ book.timestamp }}
+
+<img src="../static/receipt.jpg">

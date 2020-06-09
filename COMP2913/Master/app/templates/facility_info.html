@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Facility Deatil{% endblock %}
+
+{% block page_content %}
+<div class="good-form">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1 col-xs-7 col-md-offset-2">
+            <img src={{ facility.url }} class="img-responsive" alt="Responsive image"/>
+        </div>
+        <div class="col-md-5 col-xs-6">
+            <h3>Name:{{ facility.name }}</h3>
+            <h3>Description:{{ facility.description }}</h3>
+            <h3>Capacity:{{ facility.capacity }}</h3>
+            <h3>Activity:
+            {% for activity in facility.activities %}
+                {{  activity.activity_name }}
+            {% endfor %}
+            </h3>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

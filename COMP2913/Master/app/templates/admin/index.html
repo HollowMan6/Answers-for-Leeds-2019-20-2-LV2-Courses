@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block title %}The Gym - Admin{% endblock %}
+
+{% block page_content %}
+    {{ super() }}
+    <ul>
+        <li><a href="{{ url_for(".display_users") }}">Users</a></li>
+        <li><a href="{{ url_for(".display_facilities") }}">Facilities</a></li>
+        <li><a href="{{ url_for(".display_activities") }}">Activities</a></li>
+        <li><a href="{{ url_for(".display_bookings") }}">Bookings</a></li>
+        <li><a href="{{ url_for(".display_membership_types") }}">Membership Types</a></li>
+        <li><a href="{{ url_for(".display_memberships") }}">Memberships</a></li>
+        <li><a href="{{ url_for(".display_activity_instances") }}">Activity Instances</a></li>
+    </ul>
+{% endblock %}

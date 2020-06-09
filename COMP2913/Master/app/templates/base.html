@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+
+{% block main_content %}
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+        <a class="navbar-brand" href="{{ url_for('main.index') }}">The Gym</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% if current_user.role_id == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_facilities') }}">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_pricing_list') }}">Pricing List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_membership_types') }}">Membership</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="leftNavbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Timetable
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="leftNavbarDropdown">
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('main.timetable_all') }}">All facilities</a>
+                            </li>
+                            {% if facilities %}
+                                <li class="dropdown-divider"></li>
+                                <h6 class="dropdown-header">Facilities</h6>
+                                {% for facility in facilities %}
+                                    <li class="dropdown-item">
+                                        <a href="{{ url_for('main.timetable_facility', id=facility.id) }}">{{ facility.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </li>
+                {% elif current_user.role_id == 2 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_facilities') }}">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_pricing_list') }}">Pricing List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.search_booking') }}">Search Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.search_membership') }}">Search Memberships</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="leftNavbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Timetable
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="leftNavbarDropdown">
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('main.timetable_all') }}">All facilities</a>
+                            </li>
+                            {% if facilities %}
+                                <li class="dropdown-divider"></li>
+                                <h6 class="dropdown-header">Facilities</h6>
+                                {% for facility in facilities %}
+                                    <li class="dropdown-item">
+                                        <a href="{{ url_for('main.timetable_facility', id=facility.id) }}">{{ facility.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </li>
+                {% elif current_user.role_id == 3 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_facilities') }}">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_pricing_list') }}">Pricing List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.view_income') }}">Business</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="leftNavbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Timetable
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="leftNavbarDropdown">
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('main.timetable_all') }}">All facilities</a>
+                            </li>
+                            {% if facilities %}
+                                <li class="dropdown-divider"></li>
+                                <h6 class="dropdown-header">Facilities</h6>
+                                {% for facility in facilities %}
+                                    <li class="dropdown-item">
+                                        <a href="{{ url_for('main.timetable_facility', id=facility.id) }}">{{ facility.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_facilities') }}">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_pricing_list') }}">Pricing List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.display_membership_types') }}">Membership</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="leftNavbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Timetable
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="leftNavbarDropdown">
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('main.timetable_all') }}">All facilities</a>
+                            </li>
+                            {% if facilities %}
+                                <li class="dropdown-divider"></li>
+                                <h6 class="dropdown-header">Facilities</h6>
+                                {% for facility in facilities %}
+                                    <li class="dropdown-item">
+                                        <a href="{{ url_for('main.timetable_facility', id=facility.id) }}">{{ facility.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="rightNavbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{ current_user.gravatar(size=18) }}">
+                            Account <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="rightNavbarDropdown">
+                            {#                        <li class="dropdown-item">#}
+                            {#                            <a href="{{ url_for('main.account', id=current_current_user.id) }}">Order History</a>#}
+                            {#                        </li>#}
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('main.display_user_bookings') }}">My Bookings</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('main.display_cards',id=current_user.id) }}">My Card</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('main.display_membership') }}">My Membership</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('auth.change_password') }}">Change Password</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('auth.change_email_request') }}">Change Email</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('main.edit_profile') }}">Edit Profile</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="{{ url_for('auth.logout') }}">Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a>
+                    </li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                    {#                <li class="nav-item"><a href="{{ url_for('main.cart',id=current_user.id) }}">Cart</a></li>#}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+<body>
+{% block content %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% block page_content %}{% endblock %}
+    </div>
+{% endblock %}
+</body>
+
+{% block scripts %}
+    <!-- Optional JavaScript -->
+    {{ bootstrap.load_js() }}
+    {{ moment.include_moment() }}
+{% endblock %}
+
+</html>

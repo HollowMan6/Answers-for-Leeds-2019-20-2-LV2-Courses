@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "bootstrap/form.html" import render_form %}
+
+{% block title %}Cancel Membership{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            <h3>Membership information:</h3>
+            <p>Start date: {{ membership.start_date }}</p>
+            <p>End date: {{ membership.get_end_date() }}</p>
+            <p>Days left: {{ days_left }}</p>
+
+            <h3>Refund information:</h3>
+            <blockquote>
+                ⓘ Your refund is 90% of the value of the remaining time on your membership. We reserve a 10%
+                portion of the fee for administration purposes.
+            </blockquote>
+            <p><h5>Refund: {{ money_refund|currency }}</h5></p>
+            {% if current_user.can(Permission.CANCEL) %}
+                {{ render_form(form) }}
+            {% endif %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='card_form.js') }}"></script>
+    <script>
+        function addSubmitConfirmation() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function confirm(evt) {
+                evt.preventDefault();
+                const yes = window.confirm('Are you sure you wish to cancel your membership?');
+                // https://stackoverflow.com/questions/833032/submit-is-not-a-function-error-in-javascript
+                if (yes) document.createElement('form').submit.call(form);
+            });
+        }
+
+        window.addEventListener('load', addSubmitConfirmation);
+    </script>
+{% endblock %}

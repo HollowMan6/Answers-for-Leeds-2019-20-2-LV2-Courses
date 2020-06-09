@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Book Facility{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            <h3>Configure Facility:</h3>
+                {% if current_user.can(Permission.PAY) %}
+                    {{ wtf.quick_form(form) }}
+                {% endif %}
+            </div>
+        </div>
+{% endblock %}

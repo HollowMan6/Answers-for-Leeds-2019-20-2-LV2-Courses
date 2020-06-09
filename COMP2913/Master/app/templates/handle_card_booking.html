@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "bootstrap/form.html" import render_form %}
+
+{% block title %}Membership{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-6 col-xs-9">
+            <h3>Booking information:</h3>
+            <h4>Number: {{ book.number }}</h4>
+            <h4>Activity: {{ book.activity }}</h4>
+            <h4>Date: {{ book.time.date }}</h4>
+            <h4>Time: {{ book.time.start_time }}~{{ book.time.end_time }}</h4>
+
+            <h3>Payment information:</h3>
+            {% if current_user.can(Permission.CHECKOUT) %}
+                {{ render_form(form) }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-6">
+        <h5>Total: ${{ book.fees }}</h5>
+    </div>
+{% endblock %}
